@@ -1,0 +1,50 @@
+-c utente: -u 1 -a 127.0.0.1:23456 -p admin -c 201 Jose thepwd utente
+
+- O utilizador Jose com o ID 201 vai ser criado
+- O utilizador Jose foi criado
+
+-c técnico: -u 1 -a 127.0.0.1:23456 -p admin -c 1001 Maria qqpwd tecnico
+
+- O utilizador Maria com o ID 1001 vai ser criado
+- O utilizador Maria foi criado
+
+-c médico: -u 1 -a 127.0.0.1:23456 -p admin -c 11 Pedro aapwd medico
+
+- O utilizador Pedro com o ID 11 vai ser criado
+- O utilizador Pedro foi criado
+
+-mu medico: -u 11 -a 127.0.0.1:23456 -p aapwd -mu
+
+- 1 Administrador_base
+- 201 Jose utente
+- 1001 Maria tecnico
+- 11 Pedro medico
+
+-mx medico: -u 11 -a 127.0.0.1:23456 -p aapwd -mx 201
+
+- Directory is empty!
+
+-su medico: -u 11 -a 127.0.0.1:23456 -p aapwd -su relatorio-medico.pdf 201
+
+- O ficheiro relatorio-medico.jpeg foi enviado para o servidor e ficou associado ao utilizador com o id 201
+
+-mx medico: -u 11 -a 127.0.0.1:23456 -p aapwd -mx 201
+
+- relatorio-medico.pdf
+
+-su tecnico: -u 1001 -a 127.0.0.1:23456 -p qqpwd -su radiografia.jpg 201
+
+- O ficheiro radiografia.jpeg foi enviado para o servidor e ficou associado ao utilizador com o id 201
+
+-du medico: -u 11 -a 127.0.0.1:23456 -p aapwd -du radiografia.jpg 201
+
+- O ficheiro radiografia.jpeg foi recebido pelo cliente.
+
+-md utente: -u 201 -a 127.0.0.1:23456 -p thepwd -md
+
+- relatorio-medico.pdf
+- radiografia.jpeg
+
+-d utente: -u 201 -a 127.0.0.1:23456 -p thepwd -d relatorio-medico.pdf
+
+- O ficheiro relatório.pdf foi recebido pelo cliente.
